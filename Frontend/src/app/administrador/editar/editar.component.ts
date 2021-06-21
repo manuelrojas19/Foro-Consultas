@@ -92,7 +92,7 @@ export class EditarComponent implements OnInit {
 
     this.userService.editarUsuario(this.route.snapshot.params.boleta, this.authForm.value).subscribe({
       next: res => {
-        this.router.navigateByUrl('administrador');
+        this.router.navigateByUrl('administrador/usuarios');
       }
     })
 

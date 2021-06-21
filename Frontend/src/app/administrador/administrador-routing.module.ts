@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnunciosComponent } from './anuncios/anuncios.component';
 import { CrearComponent } from './crear/crear.component';
 import { EditarComponent } from './editar/editar.component';
 import { UserIndexComponent } from './user-index/user-index.component';
 const routes: Routes = [
   {
-    path: '', component: UserIndexComponent,
-  }, {
+    path: 'anuncios', component: AnunciosComponent,
+  }, 
+  {
+    path: 'usuarios', component: UserIndexComponent,
+  },
+  {
     path: 'registrar_usuario', component: CrearComponent,
   }, 
   {

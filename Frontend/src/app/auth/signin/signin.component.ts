@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit {
     this.authService.signin(this.authForm.value).subscribe({
       next: res => {
         if (res.usuario) {
-          this.router.navigateByUrl('/administrador')
+          this.router.navigateByUrl('/administrador/anuncios')
         } 
       },
       error: err => {

@@ -72,7 +72,7 @@ export class CrearComponent implements OnInit {
 
     this.userService.registrarUsuario(this.authForm.value).subscribe({
       next: res => {
-        this.router.navigateByUrl('administrador');
+        this.router.navigateByUrl('administrador/usuarios');
       }
     })
   }

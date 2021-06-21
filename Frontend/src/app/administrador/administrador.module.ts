@@ -6,13 +6,15 @@ import { UserIndexComponent } from './user-index/user-index.component';
 import { CrearComponent } from './crear/crear.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditarComponent } from './editar/editar.component';
+import { AnunciosComponent } from './anuncios/anuncios.component';
 
 
 @NgModule({
   declarations: [
     UserIndexComponent,
     CrearComponent,
-    EditarComponent
+    EditarComponent,
+    AnunciosComponent
   ],
   imports: [
     CommonModule,

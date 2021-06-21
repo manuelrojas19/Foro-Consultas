@@ -4,11 +4,13 @@
 const {Model} = require('sequelize');
 const bcrypt = require('bcryptjs');
 
-// const AUTH_CREDENTIALS_ERROR = 'Password or email incorrect';
-
 module.exports = (sequelize, DataTypes) => {
   class Usuario extends Model {
     static associate(models) {
+      this.hasMany(models.Comentario, {
+        foreignKey: 'idUsuario',
+        as: 'usuarios',
+      });
     }
   }
 
