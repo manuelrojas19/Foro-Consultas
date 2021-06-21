@@ -1,8 +1,7 @@
-const {Usuario} = require('../models/index.js');
 const UsuarioService = require('../services/usuario_service');
 
 exports.findUsuarioByCredentials = async (credentials) => {
-  return Usuario.findByCredentials(credentials);
+  return UsuarioService.findUsuarioByCredentials(credentials);
 };
 
 exports.findUsarioById = async (req, res) => {
@@ -77,7 +76,6 @@ exports.updateUsuario = async (req, res) => {
     );
     res.status(202).json(user);
   } catch (e) {
-    console.log(e);
     res.status(400).json(e.message);
   }
 };

@@ -7,6 +7,7 @@ import { CrearComponent } from './crear/crear.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditarComponent } from './editar/editar.component';
 import { AnunciosComponent } from './anuncios/anuncios.component';
+import { ComentarComponent } from './comentar/comentar.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AnunciosComponent } from './anuncios/anuncios.component';
     UserIndexComponent,
     CrearComponent,
     EditarComponent,
-    AnunciosComponent
+    AnunciosComponent,
+    ComentarComponent
   ],
   imports: [
     CommonModule,

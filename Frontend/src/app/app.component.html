@@ -18,7 +18,7 @@
           <li class="nav-item">
             <a href="administrador/anuncios" class="nav-link active">Anuncios</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="signedIn$.getValue()?.usuario.confUser === 1" class="nav-item">
             <a href="administrador/usuarios" class="nav-link active">Usuarios</a>
           </li>
           

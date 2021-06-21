@@ -2,55 +2,57 @@
 
 <div class="mt-4">
   <div class="table-responsive">
-    <table class="table table-hover table-bordered">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Nombre</th>
           <th scope="col">Fecha</th>
+          <th scope="col">Hora</th>
           <th scope="col">Tema</th>
           <th scope="col">Publicación</th>
+          <th *ngIf="signedIn$.getValue()?.usuario.confUser === 1" scope="col">
+            Opciones
+          </th>
         </tr>
       </thead>
+      <p *ngIf="comentarios.length === 0" class="lead mt-2">
+        Actualmente no hay comentarios en el foro
+      </p>
       <tbody>
-        <!-- <tr *ngFor="let alumno of alumnos">
-          <td>{{ alumno.idBoleta }}</td>
-          <td>{{ alumno.pNombre }}</td>
-          <td>{{ alumno.sNombre }}</td>
-          <td>{{ alumno.pApellido }}</td>
-          <td>{{ alumno.sApellido }}</td>
-          <td>{{ alumno.email }}</td>
+        <tr *ngFor="let comentario of comentarios">
           <td>
-            {{
-              alumno.carrera === "1"
-                ? "Administración"
-                : alumno.carrera === "2"
-                ? "CInformática"
-                : alumno.carrera === "3"
-                ? "IInformatica"
-                : alumno.carrera === "4"
-                ? "Industrial"
-                : alumno.carrera === "5"
-                ? "Transporte"
-                : "ControlE"
-            }}
+            {{ comentario.usuario.pNombre }}
+            {{ comentario.usuario.sNombre }}
+            {{ comentario.usuario.pApellido }}
+            {{ comentario.usuario.sApellido }}
           </td>
           <td>
-            <a
-              href="administrador/editar_usuario/{{ alumno?.idBoleta }}"
-              type="button"
-              class="btn btn-sm btn-outline-secondary me-1"
-            >
-              <i class="fa fa-pen"></i>
-            </a>
+            {{ comentario.fechaComentario }}
+          </td>
+          <td>{{ comentario.horaComentario }} hrs</td>
+          <td>
+            {{
+              comentario.temaComentario == 1
+                ? "Tramite escolar"
+                : comentario.temaComentario == 2
+                ? "Dictamen"
+                : comentario.temaComentario == 3
+                ? "Bajas"
+                : ""
+            }}
+          </td>
+
+          <td>{{ comentario.comentario }}</td>
+          <td *ngIf="signedIn$.getValue()?.usuario.confUser === 1">
             <button
-              (click)="eliminarUsuario(alumno?.idBoleta)"
+              (click)="eliminarComentario(comentario?.id)"
               type="button"
               class="btn btn-sm btn-outline-danger"
             >
               <i class="fa fa-trash"></i>
             </button>
           </td>
-        </tr> -->
+        </tr>
       </tbody>
     </table>
   </div>
@@ -59,7 +61,7 @@
 <blockquote>
   <div class="mt-3" style="text-align: right">
     <a
-      href="/administrador/registrar_usuario"
+      href="/administrador/comentar"
       type="button"
       class="btn btn-outline-primary mb-2"
     >

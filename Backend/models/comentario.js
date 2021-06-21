@@ -6,11 +6,10 @@ const {Model} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Comentario extends Model {
     static associate(models) {
-      Comentario.belongsTo(
-          models.Usuario, {
-            foreignKey: 'idUsuario'
-          },
-      );
+      Comentario.belongsTo(models.Usuario, {
+        foreignKey: 'idUsuario',
+        as: 'usuario',
+      });
     }
   }
 
@@ -24,10 +23,12 @@ module.exports = (sequelize, DataTypes) => {
     fechaComentario: {
       type: DataTypes.DATE,
       field: 'fch_Come',
+      defaultValue: new Date(),
     },
     horaComentario: {
       type: DataTypes.DATE,
       field: 'hra_Come',
+      defaultValue: new Date().getTime(),
     },
     temaComentario: {
       type: DataTypes.STRING,

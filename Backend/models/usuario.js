@@ -69,6 +69,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
+  Usuario.beforeSave(async (usuario) => {
+    if (usuario.passUser) {
+      usuario.passUser = await bcrypt.hash(usuario.passUser, 8);
+    }
+  });
+
   Usuario.findByCredentials = async (credentials) => {
     const usario = await Usuario.findOne({
       where: {

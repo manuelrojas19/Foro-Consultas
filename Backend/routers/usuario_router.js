@@ -4,7 +4,6 @@ const router = new express.Router();
 
 const UsuarioControllers = require('../controllers/usuario_controller.js');
 
-
 const ROOT_PATH = '/api/v1';
 
 router.get(
